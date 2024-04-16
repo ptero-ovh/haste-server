@@ -65,7 +65,7 @@ export class DocumentHandler {
 		const storeResult = await this.#store.set(key, typedBody);
 
 		if (storeResult) {
-			return reply.code(201).send({ key });
+			return reply.code(200).send({ key });
 		}
 
 		return reply.internalServerError('Error adding document.');

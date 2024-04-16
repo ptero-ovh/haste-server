@@ -142,7 +142,7 @@ fastify.post<{ Body: SwaggerTypes.PostBodyType; Reply: SwaggerTypes.CreatedDocum
 			tags: ['POST'],
 			body: SwaggerTypes.PostBody,
 			response: {
-				201: {
+				200: {
 					description: 'The key of the created document.',
 					...SwaggerTypes.CreatedDocument
 				},
