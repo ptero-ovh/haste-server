@@ -59,6 +59,12 @@ export class DocumentHandler {
 	 * @param reply The outgoing reply
 	 */
 	public async handlePost(request: FastifyRequest, reply: FastifyReply) {
+
+		// Bad hack to handle data from versions of wings that provide an invalid Content-Type
+		if (request.headers['content-type'] === 'plain/text') {
+			request.headers['content-type'] = 'text/plain';
+		}
+		
 		const typedBody = request.body as string;
 
 		const key = await this.chooseKey();
